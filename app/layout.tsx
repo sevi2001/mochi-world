@@ -6,6 +6,7 @@ import MagicalCursor from "@/components/MagicalCursor";
 import MagicalNavigation from "@/components/MagicalNavigation";
 import MagicalPageTransition from "@/components/MagicalPageTransition";
 import SoundToggle from "@/components/SoundToggle";
+import MochiMusicPlayer from "@/components/MochiMusicPlayer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     {children}
   </MagicalPageTransition>
   <SoundToggle />
+  <MochiMusicPlayer />
 
   <MagicalNavigation />
 </body>

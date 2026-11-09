@@ -3000,3 +3000,190 @@ a:focus-visible {
     height: 42px;
   }
 }
+
+/* ==========================================
+   MOCHI MUSIC PLAYER
+========================================== */
+
+.mochi-music-wrapper {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 300;
+  color: #77576f;
+}
+
+.mochi-music-fab {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: linear-gradient(135deg, #ffb8d6, #c9b4ff);
+  color: white;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 30px #c59cce70;
+  transition: transform 0.25s ease;
+}
+
+.mochi-music-fab:hover {
+  transform: scale(1.1) rotate(10deg);
+}
+
+.mochi-music-panel {
+  position: absolute;
+  top: 65px;
+  right: 0;
+  width: min(330px, calc(100vw - 30px));
+  padding: 22px;
+  border-radius: 28px;
+  background: #fff9ff;
+  border: 3px solid white;
+  box-shadow: 0 20px 50px #9c7da150;
+}
+
+.mochi-music-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.mochi-music-heading > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.mochi-music-heading strong {
+  font-size: 18px;
+  color: #d579a2;
+}
+
+.mochi-music-heading small {
+  font-size: 12px;
+  color: #a38c9f;
+}
+
+.mochi-music-heading button {
+  border: 0;
+  background: #ffe7f1;
+  color: #b5779a;
+  border-radius: 12px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.mochi-music-mood {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 18px;
+  background: #f2e9ff;
+  color: #a07bc1;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.mochi-music-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #f29bc4, #b99be8);
+  color: white;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mochi-music-setting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 23px;
+}
+
+.mochi-music-setting > span {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mochi-switch {
+  width: 48px;
+  height: 27px;
+  border: 0;
+  border-radius: 30px;
+  background: #dfd1e1;
+  padding: 4px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.mochi-switch.enabled {
+  background: #a7dcb3;
+}
+
+.mochi-switch span {
+  display: block;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: white;
+  transition: transform 0.25s;
+}
+
+.mochi-switch.enabled span {
+  transform: translateX(21px);
+}
+
+.mochi-music-volume {
+  margin-top: 25px;
+}
+
+.mochi-music-volume label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.mochi-music-volume input {
+  width: 100%;
+  margin-top: 15px;
+  accent-color: #d49ae4;
+  cursor: pointer;
+}
+
+.mochi-music-note {
+  margin-top: 18px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #ab91a4;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .mochi-music-wrapper {
+    top: 85px;
+    right: 15px;
+  }
+
+  .mochi-music-fab {
+    width: 45px;
+    height: 45px;
+  }
+
+  .mochi-music-panel {
+    top: 55px;
+  }
+}
