@@ -1,69 +1,216 @@
-import Image from "next/image";
+
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import { motion } from "motion/react";
+import AnimationControls from "@/components/AnimationControls";
+import type { MochiAction } from "@/components/MochiCharacter";
+import {
+  Gamepad2,
+  Palette,
+  Music2,
+  Moon,
+  Sparkles,
+  Heart,
+  ArrowRight,
+} from "lucide-react";
+
+import MochiCharacter from "@/components/MochiCharacter";
+
+const features = [
+  {
+    title: "Play",
+    description: "Interact, click and discover cute reactions!",
+    icon: Gamepad2,
+    color: "pink",
+    emoji: "💗",
+    href: "/play",
+  },
+  {
+    title: "Activities",
+    description: "Dance, jump and enjoy magical moments!",
+    icon: Music2,
+    color: "green",
+    emoji: "🎵",
+    href: "/activities",
+  },
+  {
+    title: "Customize",
+    description: "Change colors, hats and accessories!",
+    icon: Palette,
+    color: "yellow",
+    emoji: "🎨",
+    href: "/customize",
+  },
+  {
+    title: "Rest",
+    description: "Let Mochi sleep and recharge!",
+    icon: Moon,
+    color: "purple",
+    emoji: "🌙",
+    href: "/rest",
+  },
+];
+
+const decorations = [
+  { emoji: "🌸", top: "15%", left: "5%", delay: 0 },
+  { emoji: "✨", top: "24%", left: "46%", delay: 1 },
+  { emoji: "🌼", top: "65%", left: "8%", delay: 2 },
+  { emoji: "💗", top: "42%", left: "90%", delay: 1.5 },
+  { emoji: "⭐", top: "16%", left: "83%", delay: 0.5 },
+  { emoji: "🦋", top: "70%", left: "86%", delay: 2.5 },
+];
 
 export default function Home() {
+  const [action, setAction] = useState<MochiAction>("idle");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <main className="world">
+      <div className="floating-decorations" aria-hidden="true">
+        {decorations.map((item, index) => (
+          <motion.span
+            key={index}
+            className="decoration"
+            style={{ top: item.top, left: item.left }}
+            animate={{
+              y: [0, -20, 0],
+              rotate: [0, 12, -12, 0],
+            }}
+            transition={{
+              duration: 4,
+              delay: item.delay,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            {item.emoji}
+          </motion.span>
+        ))}
+      </div>
+
+      <header className="navbar">
+        <Link href="/" className="logo">
+          <span>🌱</span>
+          Mochi<span className="logo-green">World</span>
+          <Heart size={17} className="logo-heart" />
+        </Link>
+
+        <nav className="nav-links" aria-label="Main navigation">
+          <Link href="/" className="active">Home</Link>
+          <Link href="/play">Play</Link>
+          <Link href="/customize">Customize</Link>
+          <Link href="/activities">Activities</Link>
+          <Link href="/rest">Rest</Link>
+        </nav>
+
+        <div className="nav-avatar">🌸</div>
+      </header>
+
+      <section className="hero">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, x: -70 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="hero-tag">
+            <Sparkles size={17} />
+            Meet Your Magical Little Friend!
+          </div>
+
+          <h1>
+            Welcome to
+            <span>
+              <strong className="pink-text">Mochi</strong>{" "}
+              <strong className="green-text">World</strong>
+            </span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p>
+            A tiny magical friend is waiting for you!
+            Play, explore, customize, and make beautiful
+            memories with your adorable Mochi.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <div className="hero-buttons">
+            <Link href="/play" className="primary-btn">
+              Play with Mochi
+              <ArrowRight size={19} />
+            </Link>
+
+            <Link href="/customize" className="secondary-btn">
+              Customize
+              <Palette size={18} />
+            </Link>
+          </div>
+
+          <div className="hero-note">
+            💕 Your magical adventure starts here!
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="hero-visual"
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{
+            duration: 1,
+            type: "spring",
+            bounce: 0.35,
+          }}
+        >
+          <motion.div
+            className="speech-bubble"
+            animate={{ y: [0, -8, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            Hi there! 👋
+            <span>I'm Mochi! Click me! 💗</span>
+          </motion.div>
+
+         <MochiCharacter action={action} />
+        </motion.div>
+      </section>
+
+      <section className="features">
+        <AnimationControls
+  action={action}
+  onActionChange={setAction}
+/>
+        {features.map((feature, index) => {
+          const Icon = feature.icon;
+
+          return (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 + index * 0.15 }}
+              whileHover={{ y: -12, scale: 1.03 }}
+            >
+              <Link
+                href={feature.href}
+                className={`feature-card ${feature.color}`}
+              >
+                <div className="feature-emoji">{feature.emoji}</div>
+                <Icon size={32} className="feature-icon" />
+
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+
+                <span className="feature-arrow">
+                  Explore <ArrowRight size={15} />
+                </span>
+              </Link>
+            </motion.div>
+          );
+        })}
+      </section>
+
+      <footer className="footer">
+        Made with 💗 for magical little moments.
+      </footer>
+    </main>
   );
 }
