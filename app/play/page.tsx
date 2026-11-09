@@ -14,7 +14,7 @@ import {
   RotateCcw,
 } from "lucide-react";
 
-import MochiCharacter from "@/components/MochiCharacter";
+import SavedMochi from "@/components/SavedMochi";
 import type { MochiAction } from "@/components/MochiCharacter";
 
 type Activity = "feed" | "ball" | "tickle";
@@ -201,13 +201,15 @@ export default function PlayPage() {
               {message}
             </motion.div>
 
-            <div className="play-character-area">
-              <MochiCharacter
-                action={action}
-                onPet={() => {
-                  setHappiness((prev) => Math.min(100, prev + 1));
-                }}
-              />
+            
+<div className="play-character-area">
+  <SavedMochi
+    action={action}
+    onPet={() => {
+      setHappiness((prev) => Math.min(100, prev + 1));
+    }}
+  />
+
 
               <AnimatePresence mode="wait">
                 {activity && (

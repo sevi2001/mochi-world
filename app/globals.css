@@ -1206,3 +1206,1099 @@ body {
     animation: none;
   }
 }
+
+/* Floating hearts for Love mode */
+
+.mochi-love-effect {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 12;
+}
+
+/* Keep accessory elements above Mochi's body */
+
+.mochi-accessory {
+  z-index: 8;
+  pointer-events: none;
+}
+
+/* Smooth color changes */
+
+.mochi-body,
+.mochi-ear,
+.mochi-arm,
+.mochi-foot {
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease;
+}
+
+/* ===================================
+   STEP 5 — MOCHI CUSTOMIZE ROOM
+=================================== */
+
+.customize-world {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #674456;
+  background:
+    radial-gradient(circle at 15% 20%, #ffe1eb, transparent 40%),
+    radial-gradient(circle at 90% 70%, #e5f8dc, transparent 40%),
+    linear-gradient(135deg, #fff8ed, #fff0f7, #f1eaff);
+}
+
+.customize-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.customize-background span {
+  position: absolute;
+  font-size: 35px;
+  animation: customize-float 5s ease-in-out infinite;
+}
+
+.customize-background span:nth-child(1) {
+  top: 15%;
+  left: 5%;
+}
+
+.customize-background span:nth-child(2) {
+  top: 30%;
+  right: 5%;
+  animation-delay: 1s;
+}
+
+.customize-background span:nth-child(3) {
+  bottom: 20%;
+  left: 3%;
+  animation-delay: 2s;
+}
+
+.customize-background span:nth-child(4) {
+  bottom: 12%;
+  right: 5%;
+  animation-delay: 1.5s;
+}
+
+.customize-background span:nth-child(5) {
+  top: 65%;
+  right: 2%;
+  animation-delay: 3s;
+}
+
+@keyframes customize-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(10deg);
+  }
+}
+
+.customize-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1350px;
+  margin: auto;
+  padding: 25px 35px;
+}
+
+.customize-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: #ffffffbb;
+  border: 2px solid white;
+  box-shadow: 0 12px 30px #e6bac430;
+  backdrop-filter: blur(12px);
+}
+
+.customize-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #a35b78;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.customize-brand {
+  font-size: 20px;
+  font-weight: 900;
+  color: #e17b9c;
+}
+
+.customize-header-heart {
+  color: #ed7197;
+}
+
+.customize-heading {
+  text-align: center;
+  padding: 45px 0 35px;
+}
+
+.customize-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 20px;
+  background: #ffe5b6;
+  color: #a97845;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.customize-heading h1 {
+  font-size: clamp(40px, 5vw, 65px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 18px 0 10px;
+}
+
+.customize-heading h1 span {
+  color: #ff719b;
+}
+
+.customize-heading p {
+  color: #a18a96;
+  font-size: 15px;
+}
+
+.customize-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.customize-preview,
+.customize-option-card {
+  background: #ffffffdd;
+  border: 3px solid white;
+  border-radius: 35px;
+  box-shadow: 0 15px 40px #d6aab330;
+}
+
+.customize-preview {
+  padding: 25px;
+  position: sticky;
+  top: 20px;
+}
+
+.preview-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.preview-stage {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, #ffffffaa, transparent 60%),
+    linear-gradient(160deg, #ffe6f0, #e8e0ff 60%, #ddf7d8);
+}
+
+.preview-stars {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  font-size: 25px;
+  animation: twinkle 2s infinite alternate;
+}
+
+.customize-sparkles {
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  font-size: 38px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.preview-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  font-weight: 800;
+  color: #72a886;
+}
+
+.customize-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 17px;
+  border-radius: 20px;
+  border: 0;
+  background: #fff0f4;
+  color: #d66d91;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.customize-options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.customize-option-card {
+  padding: 25px;
+}
+
+.option-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #df7398;
+}
+
+.option-heading h2 {
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.customize-option-card > p {
+  color: #ad929c;
+  font-size: 13px;
+  margin: 9px 0 20px;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.color-option {
+  border: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #866a78;
+}
+
+.color-circle {
+  width: 49px;
+  height: 49px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 5px 15px #d6b7c040;
+}
+
+.color-option.selected .color-circle {
+  outline: 3px solid #ff8cad;
+  outline-offset: 3px;
+}
+
+.color-option small {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.accessory-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 9px;
+}
+
+.accessory-option,
+.wing-option {
+  border: 2px solid #f5e3e9;
+  background: #fff8fa;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #947480;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 7px;
+  padding: 14px 5px;
+}
+
+.accessory-option span {
+  font-size: 27px;
+}
+
+.accessory-option small {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.accessory-option.selected,
+.wing-option.selected {
+  border-color: #ff8eae;
+  background: #ffeaf1;
+  box-shadow: 0 5px 15px #f4b3c340;
+}
+
+.wing-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.wing-option {
+  padding: 18px 10px;
+}
+
+.wing-option span {
+  font-size: 30px;
+}
+
+.wing-option strong {
+  font-size: 12px;
+}
+
+.customize-save-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 22px;
+  background: #e5f8e8;
+  color: #62a67a;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.customize-footer {
+  text-align: center;
+  padding: 35px 0 15px;
+  color: #b18e9c;
+  font-size: 13px;
+}
+
+/* ===================================
+   MOCHI COLOR CUSTOMIZATION
+=================================== */
+
+.mochi-character {
+  --mochi-light: #c6ffb7;
+  --mochi-main: #85d59c;
+  --mochi-dark: #58a97b;
+  --mochi-border: #b7f3ad;
+  --mochi-ear: #a2e5a5;
+}
+
+.mochi-color-pink {
+  --mochi-light: #ffe0ef;
+  --mochi-main: #ffb5d1;
+  --mochi-dark: #e78eb6;
+  --mochi-border: #ffd5e7;
+  --mochi-ear: #ffc2da;
+}
+
+.mochi-color-lavender {
+  --mochi-light: #eee0ff;
+  --mochi-main: #cbb8ff;
+  --mochi-dark: #a98be0;
+  --mochi-border: #e0d2ff;
+  --mochi-ear: #d4c0ff;
+}
+
+.mochi-color-peach {
+  --mochi-light: #ffe8c7;
+  --mochi-main: #ffc49f;
+  --mochi-dark: #e9a078;
+  --mochi-border: #ffddbf;
+  --mochi-ear: #ffd0a9;
+}
+
+.mochi-color-blue {
+  --mochi-light: #e2f5ff;
+  --mochi-main: #a6ddff;
+  --mochi-dark: #7cb8e0;
+  --mochi-border: #d1efff;
+  --mochi-ear: #b6e4ff;
+}
+
+.mochi-color-cream {
+  --mochi-light: #fff9dc;
+  --mochi-main: #fff0b8;
+  --mochi-dark: #e7cf91;
+  --mochi-border: #fff5d3;
+  --mochi-ear: #fff1c4;
+}
+
+.mochi-body {
+  background: radial-gradient(
+    circle at 35% 25%,
+    var(--mochi-light),
+    var(--mochi-main) 65%,
+    var(--mochi-dark)
+  );
+  border-color: var(--mochi-border);
+}
+
+.mochi-ear,
+.mochi-arm,
+.mochi-foot {
+  background: var(--mochi-ear);
+  border-color: var(--mochi-border);
+}
+
+/* Accessories */
+
+.mochi-accessory {
+  position: absolute;
+  z-index: 8;
+  font-size: 55px;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 5px 5px #a67c9a40);
+}
+
+.accessory-bow {
+  top: 5px;
+  left: 75%;
+}
+
+.accessory-crown {
+  top: -25px;
+  font-size: 65px;
+}
+
+.accessory-flower {
+  top: 0;
+  left: 25%;
+}
+
+/* Butterfly wings */
+
+.mochi-wing.butterfly-wing {
+  background: linear-gradient(
+    135deg,
+    #ffb9e5,
+    #cdb5ff,
+    #b5f1ff
+  );
+  border: 5px solid white;
+  border-radius: 75% 25% 75% 25%;
+  box-shadow: 0 0 25px #f2b9ff;
+}
+
+/* Responsive */
+
+@media (max-width: 950px) {
+  .customize-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .customize-preview {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .customize-container {
+    padding: 15px;
+  }
+
+  .customize-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .customize-brand {
+    font-size: 16px;
+  }
+
+  .customize-heading h1 {
+    font-size: 43px;
+  }
+
+  .customize-preview,
+  .customize-option-card {
+    padding: 18px;
+  }
+
+  .preview-stage {
+    min-height: 340px;
+  }
+
+  .preview-stage .mochi-scene {
+    transform: scale(0.75);
+  }
+
+  .color-options {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .accessory-options {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .customize-background span,
+  .preview-stars {
+    animation: none;
+  }
+}
+
+/* ==========================================
+   STEP 6 — MAGICAL ACTIVITIES ROOM
+========================================== */
+
+.activities-world {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #634456;
+  background:
+    radial-gradient(circle at 15% 25%, #ffe0ee, transparent 40%),
+    radial-gradient(circle at 85% 65%, #e1f8dd, transparent 45%),
+    linear-gradient(135deg, #fff8ee, #fff0f6, #f1eaff);
+}
+
+.activities-decorations {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.activities-decorations span {
+  position: absolute;
+  font-size: 35px;
+  animation: activity-float 5s ease-in-out infinite;
+}
+
+.activities-decorations span:nth-child(1) {
+  top: 15%;
+  left: 4%;
+}
+
+.activities-decorations span:nth-child(2) {
+  top: 30%;
+  right: 5%;
+  animation-delay: 1s;
+}
+
+.activities-decorations span:nth-child(3) {
+  top: 60%;
+  left: 3%;
+  animation-delay: 2s;
+}
+
+.activities-decorations span:nth-child(4) {
+  bottom: 15%;
+  right: 3%;
+  animation-delay: 1.5s;
+}
+
+.activities-decorations span:nth-child(5) {
+  top: 50%;
+  right: 2%;
+  animation-delay: 2.5s;
+}
+
+.activities-decorations span:nth-child(6) {
+  bottom: 5%;
+  left: 15%;
+  animation-delay: 3s;
+}
+
+@keyframes activity-float {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+
+  50% {
+    transform: translateY(-25px) rotate(10deg);
+  }
+}
+
+.activities-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1350px;
+  margin: auto;
+  padding: 25px 35px;
+}
+
+.activities-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 25px;
+  background: #ffffffbb;
+  border: 2px solid white;
+  border-radius: 30px;
+  box-shadow: 0 12px 30px #e6bac430;
+  backdrop-filter: blur(12px);
+}
+
+.activities-header strong {
+  color: #dc779a;
+  font-size: 20px;
+}
+
+.activities-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a35b78;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.activities-stars {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 17px;
+  border-radius: 25px;
+  background: #fff0c9;
+  color: #c58d37;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.activities-heading {
+  text-align: center;
+  padding: 45px 0 35px;
+}
+
+.activities-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffe5b8;
+  padding: 11px 20px;
+  border-radius: 30px;
+  color: #a97946;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.activities-heading h1 {
+  margin: 18px 0 10px;
+  font-size: clamp(40px, 5vw, 65px);
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.activities-heading h1 span {
+  color: #ff6d99;
+}
+
+.activities-heading p {
+  color: #a18a96;
+  font-size: 15px;
+}
+
+.activities-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 25px;
+  align-items: start;
+}
+
+.activities-stage {
+  position: relative;
+  min-height: 560px;
+  border: 4px solid white;
+  border-radius: 40px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 40%, #ffffffaa, transparent 55%),
+    linear-gradient(
+      180deg,
+      #ffe5f0,
+      #eee3ff 60%,
+      #d8f5d1 61%,
+      #a7df9e
+    );
+  box-shadow: 0 20px 50px #d6aab340;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.activities-stage-top {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  color: #b07a9a;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.activities-combo {
+  background: #fff4d7;
+  padding: 10px 15px;
+  border-radius: 25px;
+  color: #d18b46;
+}
+
+.activities-speech {
+  position: relative;
+  z-index: 5;
+  max-width: 85%;
+  padding: 15px 25px;
+  border-radius: 25px;
+  background: white;
+  box-shadow: 0 10px 25px #c79ba440;
+  font-size: 15px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.activities-character-area {
+  position: relative;
+  min-height: 390px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activities-effect {
+  position: absolute;
+  top: 30%;
+  right: 8%;
+  z-index: 10;
+  font-size: 40px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.activities-ground {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 20px;
+}
+
+.activities-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.activities-panel {
+  background: #ffffffdd;
+  border: 3px solid white;
+  border-radius: 32px;
+  padding: 25px;
+  box-shadow: 0 15px 35px #d6aab330;
+}
+
+.activities-panel h2 {
+  font-size: 22px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.activities-panel > p {
+  color: #a1848d;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.activities-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.activities-option {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  border: 2px solid transparent;
+  border-radius: 22px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.activities-option.dance {
+  background: #ffe8f1;
+  color: #df6f99;
+}
+
+.activities-option.jump {
+  background: #e6f7e4;
+  color: #62a97c;
+}
+
+.activities-option.love {
+  background: #f0e6ff;
+  color: #a07ad0;
+}
+
+.activities-option:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.activities-option-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: #ffffffbb;
+}
+
+.activities-option-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activities-option-info strong {
+  font-size: 14px;
+}
+
+.activities-option-info small {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.activities-reward {
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.activities-playing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 13px;
+  border-radius: 18px;
+  background: #fff3d9;
+  color: #c48e43;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.activities-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.activities-stat-grid > div {
+  padding: 18px;
+  border-radius: 20px;
+  background: #fff1f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.activities-stat-grid strong {
+  color: #e66c96;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.activities-stat-grid span {
+  color: #a48b97;
+  font-size: 12px;
+  text-align: center;
+}
+
+.activities-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+  border: 0;
+  background: transparent;
+  color: #b38b9d;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.achievements-section {
+  margin-top: 35px;
+  padding: 30px;
+  border-radius: 35px;
+  background: #ffffffc9;
+  border: 3px solid white;
+  box-shadow: 0 15px 35px #d6aab330;
+}
+
+.achievements-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #d99648;
+  margin-bottom: 25px;
+}
+
+.achievements-heading h2 {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.achievement-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 8px;
+  padding: 25px 15px;
+  border-radius: 25px;
+  border: 2px solid #f5e3e9;
+  background: #fff8fb;
+}
+
+.achievement-card.unlocked {
+  background: #fff3d8;
+  border-color: #ffdfa0;
+}
+
+.achievement-card.locked {
+  opacity: 0.65;
+}
+
+.achievement-emoji {
+  font-size: 40px;
+}
+
+.achievement-card strong {
+  font-size: 15px;
+}
+
+.achievement-card p {
+  font-size: 12px;
+  color: #a38a96;
+}
+
+.achievement-card > span {
+  font-size: 11px;
+  font-weight: 900;
+  color: #d29b53;
+}
+
+.activities-footer {
+  text-align: center;
+  padding: 35px 0 15px;
+  color: #b18e9c;
+  font-size: 13px;
+}
+
+@media (max-width: 950px) {
+  .activities-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .activities-container {
+    padding: 15px;
+  }
+
+  .activities-header {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .activities-header strong {
+    font-size: 16px;
+  }
+
+  .activities-heading {
+    padding: 35px 0 25px;
+  }
+
+  .activities-stage {
+    min-height: 490px;
+  }
+
+  .activities-character-area .mochi-scene {
+    transform: scale(0.8);
+  }
+
+  .activities-panel {
+    padding: 20px;
+  }
+
+  .achievements-section {
+    padding: 20px;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activities-ground {
+    letter-spacing: 5px;
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activities-decorations span {
+    animation: none;
+  }
+}

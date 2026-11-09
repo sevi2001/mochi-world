@@ -16,7 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import MochiCharacter from "@/components/MochiCharacter";
+import SavedMochi from "@/components/SavedMochi";
 
 const features = [
   {
@@ -169,7 +169,7 @@ export default function Home() {
             <span>I'm Mochi! Click me! 💗</span>
           </motion.div>
 
-         <MochiCharacter action={action} />
+         <SavedMochi action={action} />
         </motion.div>
       </section>
 
