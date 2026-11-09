@@ -5,6 +5,7 @@ import MagicalParticles from "@/components/MagicalParticles";
 import MagicalCursor from "@/components/MagicalCursor";
 import MagicalNavigation from "@/components/MagicalNavigation";
 import MagicalPageTransition from "@/components/MagicalPageTransition";
+import SoundToggle from "@/components/SoundToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   <MagicalPageTransition>
     {children}
   </MagicalPageTransition>
+  <SoundToggle />
 
   <MagicalNavigation />
 </body>

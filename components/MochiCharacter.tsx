@@ -7,6 +7,7 @@ import {
   motion,
   useReducedMotion,
 } from "motion/react";
+import { playSound } from "@/lib/sounds";
 
 import {
   defaultCustomization,
@@ -92,6 +93,24 @@ export default function MochiCharacter({
   }, []);
 
   const handlePet = () => {
+
+    const handlePet = () => {
+  if (sleeping) return;
+
+  playSound("pet");
+
+  setPetCount((count) => count + 1);
+  setPetting(true);
+  onPet?.();
+
+  if (petTimer.current) {
+    clearTimeout(petTimer.current);
+  }
+
+  petTimer.current = setTimeout(() => {
+    setPetting(false);
+  }, 700);
+};
     if (sleeping) return;
 
     setPetCount((count) => count + 1);

@@ -15,6 +15,7 @@ import {
   RotateCcw,
   Play,
 } from "lucide-react";
+import { playSound } from "@/lib/sounds";
 
 import SavedMochi from "@/components/SavedMochi";
 import type { MochiAction } from "@/components/MochiCharacter";
@@ -214,6 +215,10 @@ export default function ActivitiesPage() {
     setActive(type);
     setAction(type);
     setMessage(selected.message);
+    playSound(
+  type === "love" ? "magic" : type
+);
+playSound("reward");
     setEffectKey((previous) => previous + 1);
 
     timerRef.current = setTimeout(() => {

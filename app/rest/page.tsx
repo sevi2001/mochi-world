@@ -14,6 +14,7 @@ import {
   BedDouble,
   AlarmClock,
 } from "lucide-react";
+import { playSound } from "@/lib/sounds";
 
 import SavedMochi from "@/components/SavedMochi";
 
@@ -102,12 +103,14 @@ export default function RestPage() {
   const putToSleep = () => {
     setSleeping(true);
     setNight(true);
+    playSound("sleep");
     setMessage("Shhh... Mochi is dreaming! 😴");
   };
 
   const wakeUp = () => {
     setSleeping(false);
     setNight(false);
+    playSound("wave");
     setMessage("Good morning! I feel wonderful! ☀️");
   };
 
